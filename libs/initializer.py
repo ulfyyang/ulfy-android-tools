@@ -160,3 +160,7 @@ class AndroidConfig:
         template.generate_code_then_write(
             template.PathConfig.init_main_application, self.code_path + '/' + 'MainApplication.java', package_name=AndroidConfig.get_package_name()
         )
+
+    def get_layout_file_names(self):
+        """获取布局文件列表"""
+        return os.listdir(self.res_layout_path)

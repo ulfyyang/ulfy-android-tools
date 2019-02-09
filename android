@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 import click, click_completion
-from libs import initializer
+from libs import initializer, layout
 
 click_completion.init()
 
@@ -36,6 +36,46 @@ def init_standard_dir():
 def init_standard_file():
     """初始化标准文件"""
     initializer.AndroidConfig.generate_config_by_default_config().init_standard_file()
+
+
+@root.group()
+def code():
+    """和代码相关的命令"""
+
+
+@code.command()
+@click.option(
+    '-l', '--layout-file-name', required=True,
+    type=click.Choice(initializer.AndroidConfig.generate_config_by_default_config().get_layout_file_names()),
+    help=u'生成viewid信息的布局文件'
+)
+def ids(layout_file_name):
+    print(layout.Layout(layout_file_name).get_view_by_ids())
+
+
+class Ids(click.types.StringParamType):
+    """用于选择布局文件中的view_id"""
+
+    def complete(self, ctx, incomplete):
+        layout_file_name = ctx.__dict__.get('params').get('layout_file_name')
+        layout_view_ids = ctx.__dict__.get('params').get('ids')
+        if layout_file_name:
+            choice = [
+                view_type.id for view_type in layout.Layout(layout_file_name).get_view_id_map()
+                if view_type.id not in layout_view_ids and incomplete in view_type.id
+            ]
+            return choice
+        else:
+            return []
+
+
+@code.command()
+@click.option('-l', '--layout-file-name', required=True,
+              type=click.Choice(initializer.AndroidConfig.generate_config_by_default_config().get_layout_file_names()),
+              help=u'布局文件')
+@click.argument('ids', nargs=-1, type=Ids())
+def showclick(layout_file_name, ids):
+    print(layout.Layout(layout_file_name).get_single_clicks(ids))
 
 
 if __name__ == '__main__':
