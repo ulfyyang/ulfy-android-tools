@@ -1,0 +1,15 @@
+package {{ package_name }}.ui.base;
+
+import android.widget.FrameLayout;
+
+import com.ulfy.android.utils.ui_inject.Layout;
+import com.ulfy.android.utils.ui_inject.ViewById;
+import {{ package_name }}.R;
+
+@Layout(id = R.layout.fragment_content)
+public class ContentFragment extends BaseFragment {
+    /*
+    声明为protected类型，便于子类直接访问
+     */
+    @ViewById(id = R.id.contentFL) protected FrameLayout contentFL;
+}

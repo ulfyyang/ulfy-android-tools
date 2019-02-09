@@ -1,0 +1,42 @@
+#!/usr/bin/env python
+# -*- coding: UTF-8 -*-
+
+import click, click_completion
+from libs import initializer
+
+click_completion.init()
+
+
+@click.group()
+def root():
+    """
+    安卓相关的总命理
+    """
+
+
+@root.group()
+def config():
+    """配置命令组"""
+
+
+@config.command()
+@click.option('--package-name', required=True, help=u'项目的包名')
+def init(package_name):
+    """初始化配置文件，不覆盖已存在的配置文件"""
+    initializer.AndroidConfig.init_android_config(package_name)
+
+
+@config.command()
+def init_standard_dir():
+    """初始化标准文件夹结构"""
+    initializer.AndroidConfig.generate_config_by_default_config().init_standard_directory()
+
+
+@config.command()
+def init_standard_file():
+    """初始化标准文件"""
+    initializer.AndroidConfig.generate_config_by_default_config().init_standard_file()
+
+
+if __name__ == '__main__':
+    root()
