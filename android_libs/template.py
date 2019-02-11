@@ -33,14 +33,14 @@ def copy_file(source_file, destination_file):
 
 def get_template_absolute_path():
     """获取正在执行的脚本的路径"""
-    return sys.path[0] + '/template'
+    return sys.path[0] + '/android_libs'
 
 
 class PathConfig:
     """路径配置类"""
 
     # 初始化模板配置
-    init_template_path = 'android_init_template'
+    init_template_path = 'init_template'
 
     init_application_path = init_template_path + '/application'
     init_base_cm = init_application_path + '/BaseCM.java'
@@ -71,7 +71,7 @@ class PathConfig:
     init_main_application = init_template_path + '/MainApplication.java'
 
     # 运行时模板配置
-    runtime_template_path = '/android_runtime_template'
+    runtime_template_path = '/runtime_template'
 
     runtime_base_activity = runtime_template_path + '/BaseActivity.java'
     runtime_base_fragment = runtime_template_path + '/BaseFragment.java'

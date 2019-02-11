@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 import click, click_completion
-from android_libs import initializer, layout
+from android_libs import initializer, layout, container
 
 click_completion.init()
 
@@ -82,12 +82,23 @@ def showclick(layout_file_name, ids):
 @click.option('-l', '--layout-file-name', required=True,
               type=click.Choice(initializer.AndroidConfig.get_layout_file_names_if_config_exist()),
               help=u'布局文件')
-@click.option('-g', '--group-name', required=True, type=click.STRING,
+@click.option('-n', '--group-name', required=True, type=click.STRING,
               help=u'组方法的名')
 @click.argument('ids', nargs=-1, type=Ids())
 def showgroupclick(layout_file_name, group_name, ids):
     """布局文件的view组单击声明"""
     print(layout.Layout(layout_file_name).get_group_clicks(group_name, ids))
+
+
+@code.command()
+@click.option('-t', '--container-type', required=True,
+              type=click.Choice(container.container_type),
+              help=u'容器类型')
+@click.option('-n', '--container-name', required=True, type=click.STRING,
+              help=u'Activity的名字，不需要写容器类型后缀')
+def content(container_type, container_name):
+    """建立一个容器命令，专门创建各种容器"""
+    container.generate_container_file(container_type, container_name)
 
 
 if __name__ == '__main__':
