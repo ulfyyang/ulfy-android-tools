@@ -3,8 +3,10 @@
 
 import click, click_completion
 from android_libs import initializer, layout
+from android_libs import cell as cell_lib
 from android_libs import view as view_lib
-from android_libs import content as content_lib
+from android_libs import activity as activity_lib
+from android_libs import container as container_lib
 
 click_completion.init()
 
@@ -99,6 +101,19 @@ def showgroupclick(layout_file_name, group_name, ids):
 @click.option('-n', '--model-name', required=True,
               type=click.STRING,
               help=u'模型的名称，不添加后缀')
+def cell(layout_file_name, model_name):
+    """生成Cell配套代码"""
+    cell_lib.generate_cell_file(layout_file_name, model_name)
+    cell_lib.generate_cm_file(model_name)
+
+
+@code.command()
+@click.option('-l', '--layout-file-name', required=True,
+              type=click.Choice(initializer.AndroidConfig.get_layout_file_names_if_config_exist()),
+              help=u'布局文件')
+@click.option('-n', '--model-name', required=True,
+              type=click.STRING,
+              help=u'模型的名称，不添加后缀')
 def view(layout_file_name, model_name):
     """生成View配套"""
     view_lib.generate_view_file(layout_file_name, model_name)
@@ -106,14 +121,26 @@ def view(layout_file_name, model_name):
 
 
 @code.command()
+@click.option('-l', '--layout-file-name', required=True,
+              type=click.Choice(initializer.AndroidConfig.get_layout_file_names_if_config_exist()),
+              help=u'布局文件')
+@click.option('-n', '--model-name', required=True,
+              type=click.STRING,
+              help=u'模型的名称，不添加后缀')
+def activity(layout_file_name, model_name):
+    """生成Activity配套"""
+    activity_lib.generate_activity_file(layout_file_name, model_name)
+
+
+@code.command()
 @click.option('-t', '--container-type', required=True,
-              type=click.Choice(content_lib.container_type),
+              type=click.Choice(container_lib.container_type),
               help=u'容器类型')
 @click.option('-n', '--container-name', required=True, type=click.STRING,
               help=u'Activity的名字，不需要写容器类型后缀')
-def content(container_type, container_name):
+def container(container_type, container_name):
     """建立一个容器命令，专门创建各种容器"""
-    content_lib.generate_container_file(container_type, container_name)
+    container_lib.generate_container_file(container_type, container_name)
 
 
 if __name__ == '__main__':
