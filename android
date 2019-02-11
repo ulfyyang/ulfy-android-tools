@@ -5,6 +5,7 @@ import click, click_completion
 from android_libs import initializer, layout
 from android_libs import cell as cell_lib
 from android_libs import view as view_lib
+from android_libs import fragment as fragment_lib
 from android_libs import activity as activity_lib
 from android_libs import container as container_lib
 
@@ -118,6 +119,18 @@ def view(layout_file_name, model_name):
     """生成View配套"""
     view_lib.generate_view_file(layout_file_name, model_name)
     view_lib.generate_vm_file(model_name)
+
+
+@code.command()
+@click.option('-l', '--layout-file-name', required=True,
+              type=click.Choice(initializer.AndroidConfig.get_layout_file_names_if_config_exist()),
+              help=u'布局文件')
+@click.option('-n', '--model-name', required=True,
+              type=click.STRING,
+              help=u'模型的名称，不添加后缀')
+def fragment(layout_file_name, model_name):
+    """生成Fragment配套"""
+    fragment_lib.generate_fragment_file(layout_file_name, model_name)
 
 
 @code.command()

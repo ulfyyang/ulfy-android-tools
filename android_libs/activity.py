@@ -8,6 +8,6 @@ def generate_activity_file(layout_file_name, activity_name):
     template.generate_code_then_write(
         template.PathConfig.runtime_base_activity,
         initializer.AndroidConfig.generate_config_by_default_config().ui_activity_path + '/' + activity_name + 'Activity.java',
-        package_name=initializer.AndroidConfig.get_package_name(), activity_name=activity_name,
+        package_name=initializer.AndroidConfig.get_package_name(), model_name=activity_name,
         layout_id=layout_file_name.split('.')[0], view_by_ids=view_by_ids_code
     )

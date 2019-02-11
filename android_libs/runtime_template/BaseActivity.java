@@ -14,7 +14,7 @@ import {{ package_name }}.R;
 import {{ package_name }}.ui.base.BaseActivity;
 
 @Layout(id = R.layout.{{ layout_id }})
-public class {{ activity_name }}Activity extends BaseActivity {
+public class {{ model_name }}Activity extends BaseActivity {
     {{ view_by_ids }}
 
     @Override protected void onCreate(Bundle savedInstanceState) {
