@@ -49,7 +49,7 @@ def code():
     type=click.Choice(initializer.AndroidConfig.generate_config_by_default_config().get_layout_file_names()),
     help=u'生成viewid信息的布局文件'
 )
-def ids(layout_file_name):
+def showids(layout_file_name):
     print(layout.Layout(layout_file_name).get_view_by_ids())
 
 
@@ -58,11 +58,10 @@ class Ids(click.types.StringParamType):
 
     def complete(self, ctx, incomplete):
         layout_file_name = ctx.__dict__.get('params').get('layout_file_name')
-        layout_view_ids = ctx.__dict__.get('params').get('ids')
         if layout_file_name:
             choice = [
                 view_type.id for view_type in layout.Layout(layout_file_name).get_view_id_map()
-                if view_type.id not in layout_view_ids and incomplete in view_type.id
+                if view_type.id.startswith()
             ]
             return choice
         else:

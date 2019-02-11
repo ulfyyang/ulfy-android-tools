@@ -61,13 +61,7 @@ class AndroidConfig:
         self.domain_entities_path = self.code_path + '/domain/entity'
         self.domain_repository_path = self.code_path + '/domain/repository'
         # infrastructure路径
-        self.infrastructure_database_path = self.code_path + '/infrastructure/database'
-        self.infrastructure_http_entity_path = self.code_path + '/infrastructure/http/entity'
-        self.infrastructure_http_json_parser_path = self.code_path + '/infrastructure/http/json_parser'
-        self.infrastructure_http_utils_path = self.code_path + '/infrastructure/http/utils'
-        self.infrastructure_local_save_entity_path = self.code_path + '/infrastructure/local_save/entity'
-        self.infrastructure_local_save_utils_path = self.code_path + '/infrastructure/local_save/utils'
-        self.infrastructure_utils_path = self.code_path + '/infrastructure/utils'
+        self.infrastructure_path = self.code_path + '/infrastructure'
         # res路径
         self.res_color = self.res_path + '/color'
         self.res_drawable_path = self.res_path + '/drawable'
@@ -93,10 +87,7 @@ class AndroidConfig:
             # domain 层
             self.domain_entities_path, self.domain_repository_path,
             # infrastructure 层
-            self.infrastructure_database_path, self.infrastructure_http_entity_path,
-            self.infrastructure_http_json_parser_path,
-            self.infrastructure_http_utils_path, self.infrastructure_local_save_entity_path,
-            self.infrastructure_local_save_utils_path, self.infrastructure_utils_path,
+            self.infrastructure_path,
             # res
             self.res_color, self.res_drawable_path, self.res_drawable_lpath, self.res_drawable_mpath,
             self.res_drawable_hpath, self.res_drawable_xpath, self.res_drawable_xxpath,
