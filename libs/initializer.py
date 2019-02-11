@@ -14,6 +14,14 @@ class AndroidConfig:
             return AndroidConfig()
 
     @staticmethod
+    def get_layout_file_names_if_config_exist():
+        """如果存在配置文件则返回布局文件名列表"""
+        if os.path.exists(AndroidConfig.get_config_file_path()):
+            return AndroidConfig().get_layout_file_names()
+        else:
+            return []
+
+    @staticmethod
     def get_model_path():
         """获取当前模块的路径，因为命令会在当前模块下运行"""
         return os.getcwdu()

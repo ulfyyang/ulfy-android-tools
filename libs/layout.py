@@ -38,7 +38,7 @@ class Layout:
 
     def get_single_clicks(self, ids):
         """生成单个单机事件代码"""
-        click_template = '''
+        click_template = """
         /**
          * click: %s
          * 
@@ -46,6 +46,29 @@ class Layout:
         @ViewClick(ids = {R.id.%s}) private void %s(View v) {
             // Todo
         }
-        '''
+        """
         three_ids = [tuple([id] * 3) for id in ids]
         return '\n'.join([click_template % three_id for three_id in three_ids])
+
+    def get_group_clicks(self, group_name, ids):
+        """生成多个view的组单击事件代码"""
+        click_template = """
+        /**
+         * click: %s
+         *
+         */
+        @ViewClick(ids = {%s})
+        private void %s(View v) {
+            switch (v.getId()) {
+%s
+                default:
+                    break;
+            }
+        }
+        """
+        case_template = """                case R.id.%s:
+                    break;"""
+        ids_top = ', '.join(ids)
+        ids_middle = ', '.join(["R.id." + id for id in ids])
+        ids_bottom = "\n".join([case_template % id for id in ids])
+        return click_template % (ids_top, ids_middle, group_name, ids_bottom)

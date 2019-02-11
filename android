@@ -27,13 +27,13 @@ def init(package_name):
 
 
 @config.command()
-def init_standard_dir():
+def initstandarddir():
     """初始化标准文件夹结构"""
     initializer.AndroidConfig.generate_config_by_default_config().init_standard_directory()
 
 
 @config.command()
-def init_standard_file():
+def initstandardfile():
     """初始化标准文件"""
     initializer.AndroidConfig.generate_config_by_default_config().init_standard_file()
 
@@ -46,22 +46,22 @@ def code():
 @code.command()
 @click.option(
     '-l', '--layout-file-name', required=True,
-    type=click.Choice(initializer.AndroidConfig.generate_config_by_default_config().get_layout_file_names()),
+    type=click.Choice(initializer.AndroidConfig.get_layout_file_names_if_config_exist()),
     help=u'生成viewid信息的布局文件'
 )
 def showids(layout_file_name):
+    """打印布局文件的view声明"""
     print(layout.Layout(layout_file_name).get_view_by_ids())
 
 
 class Ids(click.types.StringParamType):
     """用于选择布局文件中的view_id"""
-
     def complete(self, ctx, incomplete):
         layout_file_name = ctx.__dict__.get('params').get('layout_file_name')
         if layout_file_name:
             choice = [
                 view_type.id for view_type in layout.Layout(layout_file_name).get_view_id_map()
-                if view_type.id.startswith()
+                if view_type.id.startswith(incomplete)
             ]
             return choice
         else:
@@ -70,11 +70,24 @@ class Ids(click.types.StringParamType):
 
 @code.command()
 @click.option('-l', '--layout-file-name', required=True,
-              type=click.Choice(initializer.AndroidConfig.generate_config_by_default_config().get_layout_file_names()),
+              type=click.Choice(initializer.AndroidConfig.get_layout_file_names_if_config_exist()),
               help=u'布局文件')
 @click.argument('ids', nargs=-1, type=Ids())
 def showclick(layout_file_name, ids):
+    """打印布局文件的view单击声明"""
     print(layout.Layout(layout_file_name).get_single_clicks(ids))
+
+
+@code.command()
+@click.option('-l', '--layout-file-name', required=True,
+              type=click.Choice(initializer.AndroidConfig.get_layout_file_names_if_config_exist()),
+              help=u'布局文件')
+@click.option('-g', '--group-name', required=True, type=click.STRING,
+              help=u'组方法的名')
+@click.argument('ids', nargs=-1, type=Ids())
+def showgroupclick(layout_file_name, group_name, ids):
+    """布局文件的view组单击声明"""
+    print(layout.Layout(layout_file_name).get_group_clicks(group_name, ids))
 
 
 if __name__ == '__main__':
