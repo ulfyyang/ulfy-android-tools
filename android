@@ -176,6 +176,8 @@ def container(container_type, container_name):
 @root.group()
 def res():
     """和资源相关的命令"""
+
+
 @res.command()
 @click.option('-n', '--layout-file-name', required=True,
               type=click.STRING,
