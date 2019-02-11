@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 
-import click, click_completion
-from android_libs import initializer, layout
+import click, click_completion, pyperclip
+from android_libs import initializer
+from android_libs import layout as layout_lib
 from android_libs import cell as cell_lib
 from android_libs import view as view_lib
 from android_libs import fragment as fragment_lib
@@ -63,7 +64,9 @@ def code():
 )
 def showids(layout_file_name):
     """打印布局文件的view声明"""
-    print(layout.Layout(layout_file_name).get_view_by_ids())
+    ids_code = layout_lib.Layout(layout_file_name).get_view_by_ids()
+    pyperclip.copy(ids_code)
+    print(ids_code)
 
 
 class Ids(click.types.StringParamType):
@@ -72,7 +75,7 @@ class Ids(click.types.StringParamType):
         layout_file_name = ctx.__dict__.get('params').get('layout_file_name')
         if layout_file_name:
             choice = [
-                view_type.id for view_type in layout.Layout(layout_file_name).get_view_id_map()
+                view_type.id for view_type in layout_lib.Layout(layout_file_name).get_view_id_map()
                 if view_type.id.startswith(incomplete)
             ]
             return choice
@@ -87,7 +90,9 @@ class Ids(click.types.StringParamType):
 @click.argument('ids', nargs=-1, type=Ids())
 def showclick(layout_file_name, ids):
     """打印布局文件的view单击声明"""
-    print(layout.Layout(layout_file_name).get_single_clicks(ids))
+    click_code = layout_lib.Layout(layout_file_name).get_single_clicks(ids)
+    pyperclip.copy(click_code)
+    print(click_code)
 
 
 @code.command()
@@ -99,7 +104,9 @@ def showclick(layout_file_name, ids):
 @click.argument('ids', nargs=-1, type=Ids())
 def showgroupclick(layout_file_name, group_name, ids):
     """布局文件的view组单击声明"""
-    print(layout.Layout(layout_file_name).get_group_clicks(group_name, ids))
+    gclick_code = layout_lib.Layout(layout_file_name).get_group_clicks(group_name, ids)
+    pyperclip.copy(gclick_code)
+    print(gclick_code)
 
 
 @code.command()
