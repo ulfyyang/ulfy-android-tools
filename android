@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 import click, click_completion
-from libs import initializer, layout
+from android_libs import initializer, layout
 
 click_completion.init()
 

@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 import os, ConfigParser
-from template import template
+from android_libs import template
 
 
 class AndroidConfig:
