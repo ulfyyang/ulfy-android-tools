@@ -4,7 +4,7 @@ from android_libs import template, initializer
 
 container_type = (
     'activity-title-content', 'activity-content',
-    'view-content'
+    'fragment-content', 'view-content'
 )
 
 
@@ -22,6 +22,13 @@ def generate_container_file(container_type, container_name):
             initializer.AndroidConfig.generate_config_by_default_config().ui_activity_path + '/' + container_name + 'Activity.java',
             package_name=initializer.AndroidConfig.get_package_name(), model_name=container_name
         )
+    if container_type == 'fragment-content':
+        template.generate_code_then_write(
+            template.PathConfig.runtime_content_fragment,
+            initializer.AndroidConfig.generate_config_by_default_config().ui_fragment_path + '/' + container_name + 'Fragment.java',
+            package_name=initializer.AndroidConfig.get_package_name(), model_name=container_name
+        )
+        pass
     if container_type == 'view-content':
         template.generate_code_then_write(
             template.PathConfig.runtime_content_view,
