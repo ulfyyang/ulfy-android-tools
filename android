@@ -8,6 +8,7 @@ from android_libs import view as view_lib
 from android_libs import fragment as fragment_lib
 from android_libs import activity as activity_lib
 from android_libs import container as container_lib
+from android_libs import resource
 
 click_completion.init()
 
@@ -17,6 +18,9 @@ def root():
     """
     安卓相关的总命理
     """
+
+
+###################################### config ##########################################
 
 
 @root.group()
@@ -41,6 +45,9 @@ def initstandarddir():
 def initstandardfile():
     """初始化标准文件"""
     initializer.AndroidConfig.generate_config_by_default_config().init_standard_file()
+
+
+###################################### code ##########################################
 
 
 @root.group()
@@ -154,6 +161,31 @@ def activity(layout_file_name, model_name):
 def container(container_type, container_name):
     """建立一个容器命令，专门创建各种容器"""
     container_lib.generate_container_file(container_type, container_name)
+
+
+###################################### res ##########################################
+
+
+@root.group()
+def res():
+    """和资源相关的命令"""
+@res.command()
+@click.option('-n', '--layout-file-name', required=True,
+              type=click.STRING,
+              help=u'布局文件全名，不包含文件后缀，但需要写前缀')
+def layout(layout_file_name):
+    resource.generate_layout_file(layout_file_name)
+
+
+@res.command()
+@click.option('-t', '--drawable-type', required=True,
+              type=click.Choice(resource.drawable_type),
+              help=u'资源文件类型')
+@click.option('-n', '--drawable-name', required=True,
+              type=click.STRING,
+              help=u'形状资源名称，不需要添加前缀，但需要写前缀')
+def drawable(drawable_type, drawable_name):
+    resource.generate_drawable_file(drawable_type, drawable_name)
 
 
 if __name__ == '__main__':
