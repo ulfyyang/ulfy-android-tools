@@ -7,6 +7,9 @@ import android.view.View;
 import {{ package_name }}.application.vm.{{ model_name }}VM;
 import {{ package_name }}.ui.base.ContentFragment;
 import {{ package_name }}.ui.view.{{ model_name }}View;
+import com.ulfy.android.task.task_extension.transponder.ContentDataLoader;
+import com.ulfy.android.task.task_extension.transponder.OnReloadListener;
+import com.ulfy.android.utils.TaskUtils;
 
 public class {{ model_name }}Fragment extends ContentFragment {
     private {{ model_name }}VM vm;
