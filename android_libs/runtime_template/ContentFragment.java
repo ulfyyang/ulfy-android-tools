@@ -35,7 +35,7 @@ public class {{ model_name }}Fragment extends ContentFragment {
      */
     private void initContent(final Bundle savedInstanceState) {
         TaskUtils.loadData(getContext(), vm.loadDataOnExe(), new ContentDataLoader(contentFL, vm, false) {
-                    protected void onCreatView(ContentDataLoader loader, View createdView) {
+                    @Override protected void onCreatView(ContentDataLoader loader, View createdView) {
                         view = ({{ model_name }}View) createdView;
                     }
                 }.setOnReloadListener(new OnReloadListener() {
