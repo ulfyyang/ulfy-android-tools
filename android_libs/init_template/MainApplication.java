@@ -9,6 +9,7 @@ public class MainApplication extends MultiDexApplication {
 
     @Override public void onCreate() {
         super.onCreate();
+        LeakCanary.install(this);
         U.init(this, MainActivity.class);
     }
 
