@@ -31,9 +31,10 @@ def config():
 
 @config.command()
 @click.option('--package-name', required=True, help=u'项目的包名')
-def init(package_name):
+@click.option('--view-by-id-type', required=True, type=click.Choice(initializer.view_by_id_type), help=u'支持的ViewById类型')
+def init(package_name, view_by_id_type):
     """初始化配置文件，不覆盖已存在的配置文件"""
-    initializer.AndroidConfig.init_android_config(package_name)
+    initializer.AndroidConfig.init_android_config(package_name, view_by_id_type)
 
 
 @config.command()

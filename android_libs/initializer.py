@@ -2,6 +2,8 @@
 import os, ConfigParser
 from android_libs import template
 
+view_by_id_type = ('android', 'ulfy')
+
 
 class AndroidConfig:
     """初始化配置，一个Model一个份配置"""
@@ -41,10 +43,11 @@ class AndroidConfig:
             return config_parser.get('base', 'package_name')
 
     @staticmethod
-    def init_android_config(package_name):
+    def init_android_config(package_name, view_by_id_type):
         config_parser = ConfigParser.RawConfigParser()
         config_parser.add_section('base')
         config_parser.set('base', 'package_name', package_name)
+        config_parser.set('base', 'view_by_id_type', view_by_id_type)
         with open(AndroidConfig.get_config_file_path(), 'wb') as config_file:
             config_parser.write(config_file)
 

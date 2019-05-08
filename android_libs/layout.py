@@ -55,7 +55,7 @@ class Layout:
         click_template = """
         /**
          * click: %s
-         *
+         * 
          */
         @ViewClick(ids = {%s})
         private void %s(View v) {
