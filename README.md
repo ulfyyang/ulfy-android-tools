@@ -20,3 +20,6 @@ pip install -r requirements.txt
 #开始使用
 重启shell后进入fish开始使用
 ```
+
+[使用文档](http://ulfy.net:9000/blog/post/5c667b29199632000b000001)
+
