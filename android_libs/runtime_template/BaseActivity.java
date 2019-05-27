@@ -17,6 +17,10 @@ import {{ package_name }}.ui.base.BaseActivity;
 public class {{ model_name }}Activity extends BaseActivity {
     {{ view_by_ids }}
 
+    public static void startActivity() {
+        ActivityUtils.startActivity({{ model_name }}Activity.class);
+    }
+
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initViewContent();

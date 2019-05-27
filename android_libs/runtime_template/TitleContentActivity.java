@@ -16,6 +16,13 @@ public class {{ model_name }}Activity extends TitleContentActivity {
     private {{ model_name }}View view;
 
     /**
+     * 启动Activity
+     */
+    public static void startActivity() {
+        ActivityUtils.startActivity({{ model_name }}Activity.class);
+    }
+
+    /**
      * 初始化方法
      */
     @Override protected void onCreate(Bundle savedInstanceState) {
