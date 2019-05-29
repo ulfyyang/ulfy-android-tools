@@ -8,7 +8,7 @@ sudo apt install fish
 sudo apt install python python-pip
 
 # 项目配置
-git clone http://ulfy.net:10080/spark/ToolsPython.git
+git clone https://github.com/ulfyyang/ulfy-tools-python.git
 cd ToolsPython
 pip install -r requirements.txt
 
