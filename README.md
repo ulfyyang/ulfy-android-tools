@@ -9,13 +9,13 @@ sudo apt install python python-pip
 
 # 项目配置
 git clone https://github.com/ulfyyang/ulfy-tools-python.git
-cd ToolsPython
+cd ulfy-tools-python
 pip install -r requirements.txt
 
 # 环境配置
 添加工程目录到PATH：realpath . --> .bashrc
 # 配置命令补全
-./ToolsPython/fishcomplete install android
+./ulfy-tools-python/fishcomplete install android
 
 #开始使用
 重启shell后进入fish开始使用
