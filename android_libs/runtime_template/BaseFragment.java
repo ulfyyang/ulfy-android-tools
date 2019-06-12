@@ -21,8 +21,4 @@ public class {{ model_name }}Fragment extends BaseFragment {
     private void initContent(final Bundle savedInstanceState) {
 
     }
-
-    @Override public void onResumeOrNotHidden() {
-
-    }
 }

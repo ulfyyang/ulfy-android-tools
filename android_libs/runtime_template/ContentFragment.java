@@ -45,8 +45,4 @@ public class {{ model_name }}Fragment extends ContentFragment {
                 })
         );
     }
-
-    @Override public void onResumeOrNotHidden() {
-
-    }
 }
