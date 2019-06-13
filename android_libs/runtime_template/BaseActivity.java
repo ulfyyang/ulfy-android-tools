@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.ulfy.android.utils.ActivityUtils;
 import com.ulfy.android.utils.ui_inject.Layout;
 import com.ulfy.android.utils.ui_inject.ViewById;
 import {{ package_name }}.R;

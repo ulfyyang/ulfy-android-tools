@@ -5,6 +5,7 @@ import android.view.View;
 
 import com.ulfy.android.task.task_extension.transponder.ContentDataLoader;
 import com.ulfy.android.task.task_extension.transponder.OnReloadListener;
+import com.ulfy.android.utils.ActivityUtils;
 import com.ulfy.android.utils.TaskUtils;
 import {{ package_name }}.application.vm.{{ model_name }}VM;
 import {{ package_name }}.ui.base.TitleContentActivity;
