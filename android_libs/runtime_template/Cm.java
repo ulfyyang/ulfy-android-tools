@@ -15,7 +15,7 @@ public class {{ model_name }}CM extends BaseCM {
 
                     task.notifySuccess("加载完成");
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    LogUtils.log("加载失败", e);
                     task.notifyFail(e);
                 }
             }
