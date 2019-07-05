@@ -4,6 +4,7 @@ import {{ package_name }}.application.base.BaseCM;
 import {{ package_name }}.ui.cell.{{ model_name }}Cell;
 import com.ulfy.android.model.IView;
 import com.ulfy.android.task.task_extension.LoadDataUiTask;
+import com.ulfy.android.utils.LogUtils;
 
 public class {{ model_name }}CM extends BaseCM {
 

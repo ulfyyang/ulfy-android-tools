@@ -4,6 +4,7 @@ import {{ package_name }}.application.base.BaseVM;
 import {{ package_name }}.ui.view.{{ model_name }}View;
 import com.ulfy.android.model.IView;
 import com.ulfy.android.task.task_extension.LoadDataUiTask;
+import com.ulfy.android.utils.LogUtils;
 
 public class {{ model_name }}VM extends BaseVM {
 
