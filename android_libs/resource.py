@@ -8,7 +8,7 @@ drawable_type = (
     'shape-circle', 'shape-rectangl', 'selector-normal'
 )
 drawable_picture_dir = (
-    'drawable-hdpi', 'drawable-mdpi', 'drawable-xhdpi', 'drawable-xxhdpi', 'drawable-xxhdpi',
+    'drawable-hdpi', 'drawable-mdpi', 'drawable-xhdpi', 'drawable-xxhdpi', 'drawable-xxxhdpi',
     'mipmap-hdpi', 'mipmap-mdpi', 'mipmap-xhdpi', 'mipmap-xxhdpi', 'mipmap-xxxhdpi',
 )
 
@@ -56,7 +56,7 @@ def find_resource_image_paths_by_name(search_root, search_name):
     for root, dirs, files in os.walk(search_root):
         if os.path.split(root)[1] in drawable_picture_dir:
             for file in files:
-                if file == search_name:
+                if file.decode('utf-8') == search_name:
                     target_file_paths.append(os.path.join(root, file))
     return target_file_paths
 
