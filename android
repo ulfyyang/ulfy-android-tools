@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 
-import click, click_completion, pyperclip
+import os, click, click_completion, pyperclip
 from android_libs import initializer
 from android_libs import layout as layout_lib
 from android_libs import cell as cell_lib
@@ -58,9 +58,7 @@ def code():
 
 
 @code.command()
-@click.option(
-    '-l', '--layout-file-name', required=True,
-    type=click.Choice(initializer.AndroidConfig.get_layout_file_names_if_config_exist()),
+@click.option('-l', '--layout-file-name', required=True, type=click.Choice(initializer.AndroidConfig.get_layout_file_names_if_config_exist()),
     help=u'生成viewid信息的布局文件'
 )
 def showids(layout_file_name):
@@ -85,8 +83,7 @@ class Ids(click.types.StringParamType):
 
 
 @code.command()
-@click.option('-l', '--layout-file-name', required=True,
-              type=click.Choice(initializer.AndroidConfig.get_layout_file_names_if_config_exist()),
+@click.option('-l', '--layout-file-name', required=True, type=click.Choice(initializer.AndroidConfig.get_layout_file_names_if_config_exist()),
               help=u'布局文件')
 @click.argument('ids', nargs=-1, type=Ids())
 def showclick(layout_file_name, ids):
@@ -97,11 +94,8 @@ def showclick(layout_file_name, ids):
 
 
 @code.command()
-@click.option('-l', '--layout-file-name', required=True,
-              type=click.Choice(initializer.AndroidConfig.get_layout_file_names_if_config_exist()),
-              help=u'布局文件')
-@click.option('-n', '--group-name', required=True, type=click.STRING,
-              help=u'组方法的名')
+@click.option('-l', '--layout-file-name', required=True, type=click.Choice(initializer.AndroidConfig.get_layout_file_names_if_config_exist()), help=u'布局文件')
+@click.option('-n', '--group-name', required=True, type=click.STRING, help=u'组方法的名')
 @click.argument('ids', nargs=-1, type=Ids())
 def showgroupclick(layout_file_name, group_name, ids):
     """布局文件的view组单击声明"""
@@ -111,12 +105,8 @@ def showgroupclick(layout_file_name, group_name, ids):
 
 
 @code.command()
-@click.option('-l', '--layout-file-name', required=True,
-              type=click.Choice(initializer.AndroidConfig.get_layout_file_names_if_config_exist()),
-              help=u'布局文件')
-@click.option('-n', '--model-name', required=True,
-              type=click.STRING,
-              help=u'模型的名称，不添加后缀')
+@click.option('-l', '--layout-file-name', required=True, type=click.Choice(initializer.AndroidConfig.get_layout_file_names_if_config_exist()), help=u'布局文件')
+@click.option('-n', '--model-name', required=True, type=click.STRING, help=u'模型的名称，不添加后缀')
 def cell(layout_file_name, model_name):
     """生成Cell配套代码"""
     cell_lib.generate_cell_file(layout_file_name, model_name)
@@ -124,12 +114,9 @@ def cell(layout_file_name, model_name):
 
 
 @code.command()
-@click.option('-l', '--layout-file-name', required=True,
-              type=click.Choice(initializer.AndroidConfig.get_layout_file_names_if_config_exist()),
+@click.option('-l', '--layout-file-name', required=True, type=click.Choice(initializer.AndroidConfig.get_layout_file_names_if_config_exist()),
               help=u'布局文件')
-@click.option('-n', '--model-name', required=True,
-              type=click.STRING,
-              help=u'模型的名称，不添加后缀')
+@click.option('-n', '--model-name', required=True, type=click.STRING, help=u'模型的名称，不添加后缀')
 def view(layout_file_name, model_name):
     """生成View配套"""
     view_lib.generate_view_file(layout_file_name, model_name)
@@ -137,35 +124,26 @@ def view(layout_file_name, model_name):
 
 
 @code.command()
-@click.option('-l', '--layout-file-name', required=True,
-              type=click.Choice(initializer.AndroidConfig.get_layout_file_names_if_config_exist()),
+@click.option('-l', '--layout-file-name', required=True, type=click.Choice(initializer.AndroidConfig.get_layout_file_names_if_config_exist()),
               help=u'布局文件')
-@click.option('-n', '--model-name', required=True,
-              type=click.STRING,
-              help=u'模型的名称，不添加后缀')
+@click.option('-n', '--model-name', required=True, type=click.STRING, help=u'模型的名称，不添加后缀')
 def fragment(layout_file_name, model_name):
     """生成Fragment配套"""
     fragment_lib.generate_fragment_file(layout_file_name, model_name)
 
 
 @code.command()
-@click.option('-l', '--layout-file-name', required=True,
-              type=click.Choice(initializer.AndroidConfig.get_layout_file_names_if_config_exist()),
+@click.option('-l', '--layout-file-name', required=True, type=click.Choice(initializer.AndroidConfig.get_layout_file_names_if_config_exist()),
               help=u'布局文件')
-@click.option('-n', '--model-name', required=True,
-              type=click.STRING,
-              help=u'模型的名称，不添加后缀')
+@click.option('-n', '--model-name', required=True, type=click.STRING, help=u'模型的名称，不添加后缀')
 def activity(layout_file_name, model_name):
     """生成Activity配套"""
     activity_lib.generate_activity_file(layout_file_name, model_name)
 
 
 @code.command()
-@click.option('-t', '--container-type', required=True,
-              type=click.Choice(container_lib.container_type),
-              help=u'容器类型')
-@click.option('-n', '--container-name', required=True, type=click.STRING,
-              help=u'Activity的名字，不需要写容器类型后缀')
+@click.option('-t', '--container-type', required=True, type=click.Choice(container_lib.container_type), help=u'容器类型')
+@click.option('-n', '--container-name', required=True, type=click.STRING, help=u'Activity的名字，不需要写容器类型后缀')
 def container(container_type, container_name):
     """建立一个容器命令，专门创建各种容器"""
     container_lib.generate_container_file(container_type, container_name)
@@ -180,22 +158,46 @@ def res():
 
 
 @res.command()
-@click.option('-n', '--layout-file-name', required=True,
-              type=click.STRING,
-              help=u'布局文件全名，不包含文件后缀，但需要写前缀')
+@click.option('-n', '--layout-file-name', required=True, type=click.STRING, help=u'布局文件全名，不包含文件后缀，但需要写前缀')
 def layout(layout_file_name):
     resource.generate_layout_file(layout_file_name)
 
 
 @res.command()
-@click.option('-t', '--drawable-type', required=True,
-              type=click.Choice(resource.drawable_type),
-              help=u'资源文件类型')
-@click.option('-n', '--drawable-name', required=True,
-              type=click.STRING,
-              help=u'形状资源名称，不需要添加前缀，但需要写前缀')
+@click.option('-t', '--drawable-type', required=True, type=click.Choice(resource.drawable_type), help=u'资源文件类型')
+@click.option('-n', '--drawable-name', required=True, type=click.STRING, help=u'形状资源名称，不需要添加前缀，但需要写前缀')
 def drawable(drawable_type, drawable_name):
     resource.generate_drawable_file(drawable_type, drawable_name)
+
+
+@res.command()
+@click.option('-p', '--path', required=False, type=click.STRING, help=u'搜索的根目录')
+@click.option('-t', '--target', required=True, type=click.STRING, help=u'目标文件名')
+@click.option('-r', '--replace', required=True, type=click.STRING, help=u'替换的文件名')
+def rename(path, target, replace):
+    """
+    重命名图片资源文件
+    :param path: 搜索的路径 如果不指定则为当前目录
+    :param target: 目标文件名 包括后缀
+    :param replace: 被替换的文件名 包括后缀
+    """
+    if not path:
+        path = os.getcwd()
+    resource.rename_resource_image(path, target, replace)
+
+
+@res.command()
+@click.option('-p', '--path', required=False, type=click.STRING, help=u'搜索的根目录')
+@click.option('-t', '--target', required=True, type=click.STRING, help=u'目标文件名')
+def delete(path, target):
+    """
+    删除图片资源文件
+    :param path: 搜索额路径 如果不指定则为当前目录
+    :param target: 目标文件名 包括后缀
+    """
+    if not path:
+        path = os.getcwd()
+    resource.delete_resource_image(path, target)
 
 
 if __name__ == '__main__':
