@@ -171,30 +171,21 @@ def drawable(drawable_type, drawable_name):
 
 
 @res.command()
-@click.option('-p', '--path', required=False, type=click.STRING, help=u'搜索的根目录')
-@click.option('-t', '--target', required=True, type=click.STRING, help=u'目标文件名')
-@click.option('-r', '--replace', required=True, type=click.STRING, help=u'替换的文件名')
+@click.option('-p', '--path', required=False, type=click.STRING, help=u'搜索的根目录，如果不指定则为当前目录')
+@click.option('-t', '--target', required=True, type=click.STRING, help=u'目标文件名，包括后缀')
+@click.option('-r', '--replace', required=True, type=click.STRING, help=u'替换的文件名，包括后缀')
 def rename(path, target, replace):
-    """
-    重命名图片资源文件
-    :param path: 搜索的路径 如果不指定则为当前目录
-    :param target: 目标文件名 包括后缀
-    :param replace: 被替换的文件名 包括后缀
-    """
+    """重命名图片资源文件"""
     if not path:
         path = os.getcwd()
     resource.rename_resource_image(path, target, replace)
 
 
 @res.command()
-@click.option('-p', '--path', required=False, type=click.STRING, help=u'搜索的根目录')
-@click.option('-t', '--target', required=True, type=click.STRING, help=u'目标文件名')
+@click.option('-p', '--path', required=False, type=click.STRING, help=u'搜索的根目录，如果不指定则为当前目录')
+@click.option('-t', '--target', required=True, type=click.STRING, help=u'目标文件名，包括后缀')
 def delete(path, target):
-    """
-    删除图片资源文件
-    :param path: 搜索额路径 如果不指定则为当前目录
-    :param target: 目标文件名 包括后缀
-    """
+    """删除图片资源文件"""
     if not path:
         path = os.getcwd()
     resource.delete_resource_image(path, target)
