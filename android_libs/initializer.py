@@ -63,7 +63,7 @@ class AndroidConfig:
         self.ui_fragment_path = self.code_path + '/ui/fragment'
         self.ui_view_path = self.code_path + '/ui/view'
         self.ui_cell_path = self.code_path + '/ui/cell'
-        self.ui_globle_path = self.code_path + '/ui/globle_event'
+        self.ui_event_path = self.code_path + '/ui/event'
         # application路径
         self.application_base_path = self.code_path + '/application/base'
         self.application_vm_path = self.code_path + '/application/vm'
@@ -92,7 +92,7 @@ class AndroidConfig:
         directory_paths = (
             # ui 层
             self.ui_base_path, self.ui_activity_path, self.ui_fragment_path,
-            self.ui_view_path, self.ui_cell_path, self.ui_globle_path,
+            self.ui_view_path, self.ui_cell_path, self.ui_event_path,
             #  application 层
             self.application_base_path, self.application_vm_path, self.application_cm_path,
             # domain 层
