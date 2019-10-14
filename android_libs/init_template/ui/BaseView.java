@@ -3,7 +3,7 @@ package {{ package_name }}.ui.base;
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.ulfy.android.extra.base.UlfyBaseView;
+import com.ulfy.android.system.base.UlfyBaseView;
 
 public abstract class BaseView extends UlfyBaseView {
 

@@ -2,8 +2,8 @@ package {{ package_name }}.ui.base;
 
 import android.widget.FrameLayout;
 
-import com.ulfy.android.utils.ui_inject.Layout;
-import com.ulfy.android.utils.ui_inject.ViewById;
+import com.ulfy.android.ui_injection.Layout;
+import com.ulfy.android.ui_injection.ViewById;
 import {{ package_name }}.R;
 
 @Layout(id = R.layout.fragment_content)

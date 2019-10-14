@@ -7,9 +7,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.ulfy.android.utils.ui_inject.Layout;
-import com.ulfy.android.utils.ui_inject.ViewById;
-import com.ulfy.android.utils.ui_inject.ViewClick;
+import com.ulfy.android.ui_injection.Layout;
+import com.ulfy.android.ui_injection.ViewById;
+import com.ulfy.android.ui_injection.ViewClick;
 import {{ package_name }}.R;
 
 @Layout(id = R.layout.activity_title_content)
@@ -40,5 +40,4 @@ public class TitleContentActivity extends BaseActivity {
     @ViewClick(ids = R.id.left1IV) private void left1IV(View v) {
         onBackPressed();
     }
-
 }

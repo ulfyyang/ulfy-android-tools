@@ -4,10 +4,10 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
+import com.ulfy.android.system.base.UlfyBaseView;
+import com.ulfy.android.ui_injection.Layout;
+import com.ulfy.android.ui_injection.ViewById;
 import {{ package_name }}.R;
-import com.ulfy.android.extra.base.UlfyBaseView;
-import com.ulfy.android.utils.ui_inject.Layout;
-import com.ulfy.android.utils.ui_inject.ViewById;
 
 @Layout(id = R.layout.view_content)
 public abstract class ContentView extends UlfyBaseView {
