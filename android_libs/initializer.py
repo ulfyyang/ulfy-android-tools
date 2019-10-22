@@ -126,7 +126,7 @@ class AndroidConfig:
             )
         # drawable
         drawable_files = {
-            template.PathConfig.init_arrow: 'white_back_arrow.png'
+            template.PathConfig.init_arrow: 'icon_back_arrow_white.png'
         }
         for drawable_file_template, drawable_file_name in drawable_files.items():
             template.copy_file(drawable_file_template, self.res_drawable_xpath + '/' + drawable_file_name)
