@@ -6,7 +6,7 @@
 
     <!-- 引入顶部标题 -->
     <include
-        android:id="@+id/titleRL"
+        android:id="@+id/titleFL"
         layout="@layout/view_title_normal" />
 
     <!-- 显示内容的容器 -->
