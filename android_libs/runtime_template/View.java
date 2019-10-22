@@ -2,11 +2,10 @@ package {{ package_name }}.ui.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.View;
 
-import com.ulfy.android.utils.ui_inject.Layout;
-import com.ulfy.android.utils.ui_inject.ViewById;
-import com.ulfy.android.model.IViewModel;
+import com.ulfy.android.mvvm.IViewModel;
+import com.ulfy.android.ui_injection.Layout;
+import com.ulfy.android.ui_injection.ViewById;
 import {{ package_name }}.R;
 import {{ package_name }}.application.vm.{{ model_name }}VM;
 import {{ package_name }}.ui.base.BaseView;

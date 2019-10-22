@@ -8,9 +8,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.ulfy.android.utils.ActivityUtils;
-import com.ulfy.android.utils.ui_inject.Layout;
-import com.ulfy.android.utils.ui_inject.ViewById;
+import com.ulfy.android.system.ActivityUtils;
+import com.ulfy.android.ui_injection.Layout;
+import com.ulfy.android.ui_injection.ViewById;
 import {{ package_name }}.R;
 import {{ package_name }}.ui.base.BaseActivity;
 

@@ -1,16 +1,16 @@
 package {{ package_name }}.application.cm;
 
+import com.ulfy.android.mvvm.IView;
+import com.ulfy.android.task.LoadDataUiTask;
+import com.ulfy.android.utils.LogUtils;
 import {{ package_name }}.application.base.BaseCM;
 import {{ package_name }}.ui.cell.{{ model_name }}Cell;
-import com.ulfy.android.model.IView;
-import com.ulfy.android.task.task_extension.LoadDataUiTask;
-import com.ulfy.android.utils.LogUtils;
 
 public class {{ model_name }}CM extends BaseCM {
 
     public LoadDataUiTask.OnExecute loadDataOnExe() {
         return new LoadDataUiTask.OnExecute() {
-            public void onExecute(LoadDataUiTask task) {
+            @Override public void onExecute(LoadDataUiTask task) {
                 try {
                     task.notifyStart("正在加载...");
 

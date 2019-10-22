@@ -3,13 +3,13 @@ package {{ package_name }}.ui.activity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.ulfy.android.task.task_extension.transponder.ContentDataLoader;
-import com.ulfy.android.task.task_extension.transponder.OnReloadListener;
-import com.ulfy.android.utils.TaskUtils;
+import com.ulfy.android.system.ActivityUtils;
+import com.ulfy.android.task.TaskUtils;
+import com.ulfy.android.task_transponder.ContentDataLoader;
+import com.ulfy.android.task_transponder.OnReloadListener;
 import {{ package_name }}.application.vm.{{ model_name }}VM;
 import {{ package_name }}.ui.base.ContentActivity;
 import {{ package_name }}.ui.view.{{ model_name }}View;
-
 
 public class {{ model_name }}Activity extends ContentActivity {
     private {{ model_name }}VM vm;
@@ -61,5 +61,4 @@ public class {{ model_name }}Activity extends ContentActivity {
     private void initActivity(Bundle savedInstanceState) {
 
     }
-
 }
