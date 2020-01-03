@@ -33,7 +33,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:padding="5dp"
-                        android:src="@drawable/white_back_arrow"
+                        android:src="@drawable/icon_back_arrow_white"
                         android:visibility="visible"/>
 
                 <TextView
