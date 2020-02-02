@@ -48,7 +48,7 @@ public class {{ model_name }}Activity extends TitleContentActivity {
                         view = ({{ model_name }}View) createdView;
                     }
                 }.setOnReloadListener(new OnReloadListener() {
-                    public void onReload() {
+                    @Override public void onReload() {
                         initContent(savedInstanceState);
                     }
                 })

@@ -18,7 +18,15 @@ public class {{ model_name }}Fragment extends ContentFragment {
     /**
      * 初始化方法
      */
-    @Override public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    @Override public void onViewCreated(View view, Bundle savedInstanceState) {
+        // initModel(savedInstanceState);
+        // initContent(savedInstanceState);
+    }
+
+    /**
+     * 用户首次可见
+     */
+    @Override public void onVisibleFirstToUser() {
         initModel(savedInstanceState);
         initContent(savedInstanceState);
     }
@@ -39,7 +47,7 @@ public class {{ model_name }}Fragment extends ContentFragment {
                         view = ({{ model_name }}View) createdView;
                     }
                 }.setOnReloadListener(new OnReloadListener() {
-                    public void onReload() {
+                    @Override public void onReload() {
                         initContent(savedInstanceState);
                     }
                 })
