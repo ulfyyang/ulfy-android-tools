@@ -27,8 +27,8 @@ public class {{ model_name }}Fragment extends ContentFragment {
      * 用户首次可见
      */
     @Override public void onVisibleFirstToUser() {
-        initModel(savedInstanceState);
-        initContent(savedInstanceState);
+        initModel(null);
+        initContent(null);
     }
 
     /**
