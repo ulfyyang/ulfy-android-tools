@@ -1,25 +1,20 @@
-# ToolsPython
+# 优菲框架辅助工具
 
-Python开发的辅助工具
+优菲框架开发辅助工具，用于快速生成代码，提高开发效率，文档地址：https://mindoc.ulfy.net/docs/android/android-1bukvoe41bd7i
 
 ```bash
 # 安装基础工具
-sudo apt install fish
-sudo apt install python python-pip
+sudo apt install fish python python-pip
 
 # 项目配置
-git clone https://github.com/ulfyyang/ulfy-tools-python.git
-cd ulfy-tools-python
+git clone https://github.com/ulfyyang/ulfy-android-tools.git
+cd ulfy-android-tools
 pip install -r requirements.txt
 
-# 环境配置
-添加工程目录到PATH：realpath . --> .bashrc
-# 配置命令补全
-./ulfy-tools-python/fishcomplete install android
+# 配置环境变量和命令行补全
+添加 ulfy-android-tools 路径到 PATH 变量
+ulfy-android-tools/fishcomplete install android
 
-#开始使用
-重启shell后进入fish开始使用
+# 开始使用
+重启 shell 后进入 fish 开始使用
 ```
-
-[使用文档](http://ulfy.net:9000/blog/post/spark/android-ulfy-python-tools)
-
