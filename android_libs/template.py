@@ -47,7 +47,7 @@ class PathConfig:
     init_base_vm = init_application_path + '/BaseVM.java'
 
     init_drawable_path = get_template_absolute_path() + '/' + init_template_path + '/drawable'
-    init_arrow = init_drawable_path + '/icon_back_arrow_white.png'
+    init_arrow = init_drawable_path + '/ic_back_arrow_white.png'
 
     init_layout_path = get_template_absolute_path() + '/' + init_template_path + '/layout'
     init_activity_content = init_layout_path + '/activity_content.xml'
