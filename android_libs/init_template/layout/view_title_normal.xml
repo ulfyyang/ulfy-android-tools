@@ -147,7 +147,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:textColor="#FFFFFF"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     tools:text="文字" />
 
             </FrameLayout>
