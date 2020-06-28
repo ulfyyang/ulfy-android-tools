@@ -7,7 +7,7 @@ import android.view.View;
 import com.ulfy.android.task.TaskUtils;
 import com.ulfy.android.task_transponder.ContentDataLoader;
 import com.ulfy.android.task_transponder.OnReloadListener;
-import {{ package_name }}.application.vm.ShouyePageVM;
+import {{ package_name }}.application.vm.{{ model_name }}VM;
 import {{ package_name }}.ui.base.ContentView;
 
 public class {{ model_name }}ContentView extends ContentView {
