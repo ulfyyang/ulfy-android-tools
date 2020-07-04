@@ -24,4 +24,5 @@ public abstract class ContentView extends UlfyBaseView {
     声明为protected类型，便于子类直接访问
      */
     @ViewById(id = R.id.contentFL) protected FrameLayout contentFL;
+
 }
