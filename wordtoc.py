@@ -3,7 +3,7 @@
 
 """
 为 word 转换出来的 html 生成侧栏目录。使用方法：
-    1）word 另存为筛选过的网页（word 中用到的图片会保存到 temp.fld 目录中）
+    1）word 另存为筛选过的网页（word 中用到的图片会保存到 同名.fld 目录中）
     2）手动修改 srouce_html、target_html 的值
     3）运行程序生成完毕
 """
